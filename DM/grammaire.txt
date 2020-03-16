@@ -1,0 +1,28 @@
+S -> program id DeclVar Bloc .
+
+DeclVar -> var DeclList .
+
+DeclList -> Decl DeclList .
+DeclList -> Decl .
+
+Type -> integer .
+Type -> longint .
+
+Decl -> IdList : Type ; .
+
+IdList -> id, IdList .
+IdList -> id .
+
+Bloc -> begin InstrList end .
+
+InstrList -> Instr InstrList .
+InstrList -> Instr .
+
+Instr -> id ( IdList ); .
+Instr -> id := Expr .
+Instr -> id := id .
+Instr -> for id Expr to Expr do Instr .
+
+Expr -> id .
+Expr -> cte .
+Expr -> Expr * Expr .
